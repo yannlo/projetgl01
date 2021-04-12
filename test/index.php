@@ -10,8 +10,10 @@
     <h1>Page de test</h1>
     <?php 
     
-    include("../function/matricule/matriculeGestionnaire.php");
-    matriculeGestionnaire("GES-20-013");
+    $bdd = new PDO('mysql:host=localhost;dbname=projetgl1','yannlo','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    include("../function/matricule/matriculeGenerateur.php");
+    $newMatricule = matriculeGenerateur("gestionnaire","CODEG",$bdd,"GES");
+    echo $newMatricule;
 
     ?>
     
