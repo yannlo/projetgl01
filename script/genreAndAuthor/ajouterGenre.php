@@ -9,7 +9,9 @@
    * 1 -> insertion dans la base de donnee impossible 
    */ 
  
-  $_SESSION['codeErreur'] = 0; 
+  $_SESSION['codeErreur']["value"] = 0;
+  $_SESSION['codeErreur']["message"] ="ajout d'un nouveau genre effectuer";
+  $_SESSION['codeErreur']["type"]="genre";
 
  // verification de l'ouveture,d'une session
  include("../global/verifierConnexion.php");
@@ -24,26 +26,39 @@
     
 
     // creation de la requete d'ajout genre
-    $request = $bdd -> prepare("INSERT INTO genre ( CREATEGENRE, NOMGENRE) VALUES (:createGenre, :nom)");
+    $request = $bdd -> prepare("INSERT INTO genre (IDGENRE, CREATEGENRE, NOMGENRE) VALUES (:idgenre, :createGenre, :nom)");
+
+    // generation et sauvegarde du matricule
+    include("../../function/matricule/matriculeSimple.php");
+    $matriculeGenre = matriculeSimple("genre","IDGENRE",$bdd);
 
     // insertion des valeurs dans la table
     try {
         $request ->execute(array(
+            "idgenre" => $matriculeGenre,
             "createGenre" => $_SESSION['matricule'],
             "nom" => $nom
         ));
     
-    } catch (\Throwable $th) {
+    } catch (Exception $e) {
         // modification du code d'erreur
-        $_SESSION['codeErreur'] = 1; 
+        $_SESSION['codeErreur']["value"] = 1;
+        $_SESSION['codeErreur']["message"] = $e -> getMessage();
+        $_SESSION['codeErreur']["type"]="genre";
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/index.php ');
+        header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
         exit();
     }
 
+        // mise a jour du code d'erreur
+        $_SESSION['codeErreur']["value"] = 0;
+        $_SESSION['codeErreur']["message"] ="ajout d'un nouveau genre effectuer";
+        $_SESSION['codeErreur']["type"]="genre";
+
+
     // redirection sur la page d'affichage
-    header('Location: ../../test/index.php ');
+    header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
     exit();
 
  }

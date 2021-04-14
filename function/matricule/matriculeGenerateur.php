@@ -20,8 +20,7 @@ function matriculeGenerateur($table, $idChamp, $bdd, $type){
     $endYear = preg_split('#^20#',date('Y'));
 
     // verication de la valeur retourner
-
-    if($value == 0 ){
+    if($value === 0 ){
         return $type.'-'. (string) $endYear[1] .'-001';
     }
 

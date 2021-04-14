@@ -12,7 +12,8 @@
    * 2 -> aucune information envoyer
    */ 
  
-  $_SESSION['codeErreur'] = 0; 
+  $_SESSION['codeErreur']["value"] = 0;
+  $_SESSION['codeErreur']["message"] ="connexion du gestionnaire effectuer";
 
  // verifier si les informatino de connexion on bien etez envoyer avec la methode post
 if(isset($_POST['emailUser']) AND isset($_POST['passwordUser'])){
@@ -39,21 +40,17 @@ if(isset($_POST['emailUser']) AND isset($_POST['passwordUser'])){
             $_SESSION["matricule"] = $champ["CODEG"];
             $_SESSION["nomAdmin"] = $champ["NOMG"];
             $_SESSION["prenomAdmin"] = $champ["PRENOMG"];
-            header('Location: ../../test/index.php ');
-            exit();
-        }else{
-            // modification du code d'erreur
-            $_SESSION['codeErreur'] = 1;
-            header('Location: ../../test/index.php ');
+            header('Location: ../../test/formulaire/formulaireConnexion.php ');
             exit();
         }
     }
 
-}else{
     // modification du code d'erreur
-    $_SESSION['codeErreur'] = 2;
-    header('Location: ../../test/index.php ');
+    $_SESSION['codeErreur']["value"] = 1;
+    $_SESSION['codeErreur']["message"] ="information de connexion invalide";
+    header('Location: ../../test/formulaire/formulaireConnexion.php ');
     exit();
+
 }
 
 ?>

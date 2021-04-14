@@ -9,7 +9,10 @@
    * 1 -> insertion dans la base de donnee impossible 
    */ 
  
-  $_SESSION['codeErreur'] = 0; 
+  $_SESSION['codeErreur']["value"] = 0;
+  $_SESSION['codeErreur']["message"] ="ajout d'un nouveau auteur effectuer";
+  $_SESSION['codeErreur']["type"]="auteur";
+
 
  // verification de l'ouveture,d'une session
  include("../global/verifierConnexion.php");
@@ -24,26 +27,40 @@
     
 
     // creation de la requete d'ajout auteur
-    $request = $bdd -> prepare("INSERT INTO auteur ( CREATEAUTEUR, NOMAUTEUR) VALUES (:createAuteur, :nom)");
+    $request = $bdd -> prepare("INSERT INTO auteur ( IDAUTEUR, CREATEAUTEUR, NOMAUTEUR) VALUES (:idauteur, :createAuteur, :nom)");
+
+        // generation et sauvegarde du matricule
+        include("../../function/matricule/matriculeSimple.php");
+        $matriculeAuteur = matriculeSimple("auteur","IDAUTEUR",$bdd);
 
     // insertion des valeurs dans la table
     try {
         $request ->execute(array(
+            "idauteur" => $matriculeAuteur,
             "createAuteur" => $_SESSION['matricule'],
             "nom" => $nom
         ));
     
-    } catch (\Throwable $th) {
+    } catch (Exception $e) {
         // modification du code d'erreur
-        $_SESSION['codeErreur'] = 1; 
+        $_SESSION['codeErreur']["value"] = 1;
+        $_SESSION['codeErreur']["message"] = $e -> getMessage();
+        $_SESSION['codeErreur']["type"]="auteur";
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/index.php ');
+        header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
         exit();
     }
 
+
+        // mise a jour du code d'erreur
+        $_SESSION['codeErreur']["value"] = 0;
+        $_SESSION['codeErreur']["message"] ="ajout d'un nouveau auteur effectuer";
+        $_SESSION['codeErreur']["type"]="auteur";
+
+
     // redirection sur la page d'affichage
-    header('Location: ../../test/index.php ');
+    header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
     exit();
 
  }

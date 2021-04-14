@@ -9,7 +9,8 @@
    * 1 -> insertion dans la base de donnee impossible 
    */ 
  
-  $_SESSION['codeErreur'] = 0; 
+  $_SESSION['codeErreur']["value"] = 0;
+  $_SESSION['codeErreur']["message"] ="ajout d'un nouveau etudiant effectuer";
 
  // verification de l'ouveture,d'une session
  include("../global/verifierConnexion.php");
@@ -26,34 +27,39 @@
     $codeClasse = $_POST['codeClasse'];
 
     // creation de la requete d'ajout de etudiant
-    $request = $bdd -> prepare("INSERT INTO etudiant (MATRICULEE, CODECL , CREATEE, NOMG, PRENOMG,  ADRESSEE) VALUES (:matricule, :codel, :createe, :nom, :prenom,  :adresse)");
+    $request = $bdd -> prepare("INSERT INTO etudiant (MATRICULEE, CODECL , CREATEE, NOME, PRENOME,  ADRESSEE) VALUES (:matricule, :codel, :createe, :nom, :prenom,  :adresse)");
 
     // generation et sauvegarde du matricule
     include("../../function/matricule/matriculeGenerateur.php");
-    $matriculeGestionnaire = matriculeGenerateur("etudiant","MATRICULEE",$bdd,"STD");
+    $matriculeEtudiant = matriculeGenerateur("etudiant","MATRICULEE",$bdd,"STD");
 
     // insertion des valeurs dans la table
     try {
         $request ->execute(array(
-            "matricule" => $matriculeGestionnaire,
+            "matricule" => $matriculeEtudiant,
             "codel" => $codeClasse,
-            "createg" => $_SESSION['matricule'],
+            "createe" => $_SESSION['matricule'],
             "nom" => $nom,
             "prenom" => $prenom,
             "adresse" => $adresse
         ));
     
-    } catch (\Throwable $th) {
+    } catch (Exception $e) {
         // modification du code d'erreur
-        $_SESSION['codeErreur'] = 1; 
+        $_SESSION['codeErreur']["value"] = 1;
+        $_SESSION['codeErreur']["message"] = $e -> getMessage();
         
         // redirection sur la page d'affichage
-        header('Location: ../../test/index.php ');
+        header('Location: ../../test/formulaire/formulaireEtudiant.php ');
         exit();
     }
 
+    // mise a jour du code d'erreur
+    $_SESSION['codeErreur']["value"] = 0;
+    $_SESSION['codeErreur']["message"] ="ajout d'un nouveau etudiant effectuer";
+
     // redirection sur la page d'affichage
-    header('Location: ../../test/index.php ');
+    header('Location: ../../test/formulaire/formulaireEtudiant.php ');
     exit();
 
  }

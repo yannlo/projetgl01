@@ -8,8 +8,8 @@
    * 0 -> aucun soucis
    * 1 -> insertion dans la base de donnee impossible 
    */ 
- 
-  $_SESSION['codeErreur'] = 0; 
+  $_SESSION['codeErreur']["value"] = 0;
+  $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
 
  // verification de l'ouveture,d'une session
  include("../global/verifierConnexion.php");
@@ -26,7 +26,7 @@
     $idGenre = $_POST['idGenreLivre'];
 
     // creation de la requete d'ajout de livre
-    $request = $bdd -> prepare("INSERT INTO livre (CODEL, IDAUTEUR, IDGENRE, CREATEL, TITLEL, NBPAGEL) VALUES (:code, :idAuteur, :idGenre, :createl, :titre, :nbPage)");
+    $request = $bdd -> prepare("INSERT INTO livre (CODEL, IDAUTEUR, IDGENRE, CREATEL, TITREL, NBPAGEL) VALUES (:code, :idAuteur, :idGenre, :createl, :titre, :nbPage)");
 
     // generation et sauvegarde du matricule
     include("../../function/matricule/matriculeGenerateur.php");
@@ -43,17 +43,21 @@
             "nbPage" => $nbPage
         ));
     
-    } catch (\Throwable $th) {
+    } catch (Exception $e) {
         // modification du code d'erreur
-        $_SESSION['codeErreur'] = 1; 
+        $_SESSION['codeErreur']["value"] = 1;
+        $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/index.php ');
+        header('Location: ../../test/formulaire/formulaireLivre.php ');
         exit();
     }
+    // mise a jour des code d'erreur
+    $_SESSION['codeErreur']["value"] = 0;
+    $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/index.php ');
+    header('Location: ../../test/formulaire/formulaireLivre.php ');
     exit();
 
  }

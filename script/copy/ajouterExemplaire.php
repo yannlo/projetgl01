@@ -9,7 +9,8 @@
    * 1 -> insertion dans la base de donnee impossible 
    */ 
  
-  $_SESSION['codeErreur'] = 0; 
+  $_SESSION['codeErreur']["value"] = 0;
+  $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
 
  // verification de l'ouveture,d'une session
  include("../global/verifierConnexion.php");
@@ -21,7 +22,7 @@
  if(isset($_POST['idLivre']) AND isset($_POST['idEtat'])){
     // redefinition des variables
     $idLivre = $_POST['idLivre'];
-    $idGenre = $_POST['idGenreLivre'];
+    $idGenre = $_POST['idEtat'];
 
     // creation de la requete d'ajout d'exemplaire
     $request = $bdd -> prepare("INSERT INTO exemplaire (CODEEXEMPLAIRE, CODEL, IDETAT, CREATEEXEMPLAIRE, DATEAJOUTEXEMPLAIRE) VALUES (:code, :codeLivre, :idEtat, :createExemplaire, :dateAjout)");
@@ -40,17 +41,22 @@
             "dateAjout" => date("Y-m-d")
         ));
     
-    } catch (\Throwable $th) {
+    } catch (Exception $e) {
         // modification du code d'erreur
-        $_SESSION['codeErreur'] = 1; 
+        $_SESSION['codeErreur']["value"] = 1;
+        $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/index.php ');
+        header('Location: ../../test/formulaire/formulaireExemplaire.php ');
         exit();
     }
 
+    // mise a jour des code d'erreur
+    $_SESSION['codeErreur']["value"] = 0;
+    $_SESSION['codeErreur']["message"] ="Ajout de l'effectuer";
+
     // redirection sur la page d'affichage
-    header('Location: ../../test/index.php ');
+    header('Location: ../../test/formulaire/formulaireExemplaire.php ');
     exit();
 
  }

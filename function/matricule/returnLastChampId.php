@@ -8,7 +8,7 @@ function returnLastChampId($table ,$idChamp,$bdd){
     $value =NULL;
 
     // recuperation du dernier champs de la table
-    $request = $bdd -> query("SELECT $idChamp FROM $table ORDER BY $idChamp DESC LIMIT 1");
+    $request = $bdd -> query("SELECT * FROM $table ORDER BY $idChamp DESC LIMIT 1");
 
     
     // verifier si la table est vide

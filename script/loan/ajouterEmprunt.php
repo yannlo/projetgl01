@@ -1,16 +1,15 @@
 <?php
 
 /**
- * ajouter un nouveau champ dans la table classe de la base de donnée
+ * ajouter un nouveau champ dans la table emprunt de la base de donnée
  */
 
    /**  initiallisation du code d'erreur
    * 0 -> aucun soucis
    * 1 -> insertion dans la base de donnee impossible 
    */ 
- 
   $_SESSION['codeErreur']["value"] = 0;
-  $_SESSION['codeErreur']["message"] ="Ajout du classe effectuer";
+  $_SESSION['codeErreur']["message"] ="Ajout de l'emprunt effectuer";
 
  // verification de l'ouveture d'une session
  include("../global/verifierConnexion.php");
@@ -19,42 +18,37 @@
  include("../global/connexionBDD.php");
 
  // verification de la reception des donnee par la methode post
- if(isset($_POST['libelleClasse'])){
+ if(isset($_POST['matriculeEtudiant']) AND isset($_POST['codeExemplaire'])){
     // redefinition des variables
-    $libelle = htmlspecialchars($_POST['libelleClasse']);
- 
+    $matricule = $_POST['matriculeEtudiant'];
+    $codeEx = $_POST['codeExemplaire'];
 
-    // creation de la requete d'ajout de classe
-    $request = $bdd -> prepare("INSERT INTO classe (CODECL, CREATECL, LIBELLECL) VALUES (:code, :createcl,:libelle)");
+    // creation de la requete d'ajout d'emprunt
+    $request = $bdd -> prepare("INSERT INTO emprunt (MATRICULEE, CODEEXEMPLAIRE, DEBUTEMPRUNT) VALUES (:matricule, :code, :debut)");
 
-    // generation et sauvegarde du matricule
-    include("../../function/matricule/matriculeGenerateur.php");
-    $matriculeLivre = matriculeGenerateur("classe","CODECL",$bdd,"CLS");
 
     // insertion des valeurs dans la table
     try {
         $request ->execute(array(
-            "code" => $matriculeLivre,
-            "createcl" => $_SESSION['matricule'],
-            "libelle" => $libelle
+            "matricule" => $matricule,
+            "code" => $codeEx,
+            "debut" => date("Y-m-d")
         ));
-    
     } catch (Exception $e) {
         // modification du code d'erreur
         $_SESSION['codeErreur']["value"] = 1;
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireClasse.php ');
+        header('Location: ../../test/formulaire/formulaireLivre.php ');
         exit();
     }
-
     // mise a jour des code d'erreur
     $_SESSION['codeErreur']["value"] = 0;
-    $_SESSION['codeErreur']["message"] ="Ajout du classe effectuer";
-    
+    $_SESSION['codeErreur']["message"] ="Ajout de l'emprunt effectuer";
+
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireClasse.php ');
+    header('Location: ../../test/formulaire/formulaireEmprunt.php ');
     exit();
 
  }

@@ -9,7 +9,9 @@
    * 1 -> insertion dans la base de donnee impossible 
    */ 
  
-  $_SESSION['codeErreur'] = 0; 
+  $_SESSION['codeErreur']["value"] = 0;
+  $_SESSION['codeErreur']["message"] ="Ajout du gestionnaire effectuer";
+
 
  // verification de l'ouveture,d'une session
  include("../global/verifierConnexion.php");
@@ -20,42 +22,76 @@
  // verification de la reception des donnee par la methode post
  if(isset($_POST['nomAdmin']) AND isset($_POST['prenomAdmin']) AND isset($_POST['emailAdmin']) AND isset($_POST['passwordAdmin']) AND isset($_POST['contactAdmin'])){
     // redefinition des variables
-    $nom = htmlspecialchars($_POST['nomAdmin']);
-    $prenom = htmlspecialchars($_POST['prenomAdmin']);
+    $nom = htmlspecialchars(strtoupper($_POST['nomAdmin']));
+    $prenom = htmlspecialchars(ucwords($_POST['prenomAdmin']));
     $email = htmlspecialchars($_POST['emailAdmin']);
     $password = password_hash($_POST['passwordAdmin'],PASSWORD_DEFAULT) ;
     $contact = $_POST['contactAdmin'];
 
     // creation de la requete d'ajout de gestionnaire
-    $request = $bdd -> prepare("INSERT INTO gestionnaire (CODEG, CREATEG ,NOMG, PRENOMG, EMAILG, MOTDEPASSEG, CONTACTG) VALUES (:code, :createg, :nom, :premon,  :email, :motDePasse, :contact)");
+    $request = $bdd -> prepare("INSERT INTO gestionnaire (CODEG, CREATEG ,NOMG, PRENOMG, EMAILG, MOTDEPASSEG, CONTACTG) VALUES (:code, :createg, :nom, :prenom,  :email, :motDePasse, :contact)");
 
     // generation et sauvegarde du matricule
     include("../../function/matricule/matriculeGenerateur.php");
     $matriculeGestionnaire = matriculeGenerateur("gestionnaire","CODEG",$bdd,"GES");
 
-    // insertion des valeurs dans la table
-    try {
-        $request ->execute(array(
-            "code" => $matriculeGestionnaire,
-            "createg" => $_SESSION['matricule'],
-            "nom" => $nom,
-            "prenom" => $prenom,
-            "email" => $email,
-            "motDePasse" => $password,
-            "contact" => $contact
-        ));
-    
-    } catch (\Throwable $th) {
-        // modification du code d'erreur
-        $_SESSION['codeErreur'] = 1; 
+    // verification de l'existance d'un gestionnaire
+    if(isset($_SESSION['matricule'])){
+
+        // insertion des valeurs dans la table
+        try {
+            $request ->execute(array(
+                "code" => $matriculeGestionnaire,
+                "createg" => $_SESSION['matricule'],
+                "nom" => $nom,
+                "prenom" => $prenom,
+                "email" => $email,
+                "motDePasse" => $password,
+                "contact" => $contact
+            ));
         
-        // redirection sur la page d'affichage
-        header('Location: ../../test/index.php ');
-        exit();
+        } catch (Exception $e) {
+            // modification du code d'erreur
+            $_SESSION['codeErreur']["value"] = 1;
+            $_SESSION['codeErreur']["message"] = $e -> getMessage();
+            
+            // redirection sur la page d'affichage
+            header('Location: ../../test/formulaire/formulaireGestionnaire.php ');
+            exit();
+        }
+
+    }else{
+
+        // insertion des valeurs dans la table
+        try {
+            $request ->execute(array(
+                "code" => $matriculeGestionnaire,
+                "createg" => NULL,
+                "nom" => $nom,
+                "prenom" => $prenom,
+                "email" => $email,
+                "motDePasse" => $password,
+                "contact" => $contact
+            ));
+        
+        } catch (Exception $e) {
+            // modification du code d'erreur
+            $_SESSION['codeErreur']["value"] = 1;
+            $_SESSION['codeErreur']["message"] = $e -> getMessage();
+            
+            // redirection sur la page d'affichage
+            header('Location: ../../test/formulaire/formulaireGestionnaire.php  ');
+            exit();
+        }
+
+
     }
 
+    // mise a jour du message d'erreur
+    $_SESSION['codeErreur']["value"] = 0;
+    $_SESSION['codeErreur']["message"] ="Ajout du gestionnaire effectuer";
     // redirection sur la page d'affichage
-    header('Location: ../../test/index.php ');
+    header('Location: ../../test/formulaire/formulaireGestionnaire.php  ');
     exit();
 
  }
