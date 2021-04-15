@@ -4,15 +4,16 @@
  * ajouter un nouveau champ dans la table livre de la base de donnée
  */
 
-   /**  initiallisation du code d'erreur
-   * 0 -> aucun soucis
-   * 1 -> insertion dans la base de donnee impossible 
-   */ 
-  $_SESSION['codeErreur']["value"] = 0;
-  $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
 
- // verification de l'ouveture,d'une session
- include("../global/verifierConnexion.php");
+// verification de l'ouveture,d'une session
+include("../global/verifierConnexion.php");
+
+/**  initiallisation du code d'erreur
+* 0 -> aucun soucis
+* 1 -> insertion dans la base de donnee impossible 
+*/ 
+$_SESSION['codeErreur']["value"] = 0;
+$_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
 
  // connexion a la base de donnee
  include("../global/connexionBDD.php");
@@ -52,9 +53,7 @@
         header('Location: ../../test/formulaire/formulaireLivre.php ');
         exit();
     }
-    // mise a jour des code d'erreur
-    $_SESSION['codeErreur']["value"] = 0;
-    $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
+
 
     // redirection sur la page d'affichage
     header('Location: ../../test/formulaire/formulaireLivre.php ');

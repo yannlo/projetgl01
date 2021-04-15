@@ -9,7 +9,7 @@ function matriculeGenerateur($table, $idChamp, $bdd, $type){
      * generer un nouveau matricule a pour l'ajout dun nouveau gestionnaire
      * $table,$idChamp,$bdd
      * $type (STD => etudiant; CLS => classe ;
-     *        GES => gestionaire; EMP => emprunt;
+     *        GES => gestionaire; 
      *        EXP => exemplaire; LIV => livre)
      */
 
@@ -25,7 +25,6 @@ function matriculeGenerateur($table, $idChamp, $bdd, $type){
     }
 
     //extraction de l'année et de numero du matricule dans un tableau
-
     $tabInf = preg_split('#-#',$value);
 
     $numMatricule = "";

@@ -34,7 +34,8 @@ include("../../script/global/verifierConnexion.php ");
                 include("../../script/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table classe
-                $request = $bdd -> query("SELECT * FROM classe ORDER BY LIBELLECL");
+                $request = $bdd -> query("SELECT * FROM classe WHERE DELETECL is null ORDER BY LIBELLECL");
+
 
                 // affichage des information de classe
                 while($champ = $request -> fetch()){

@@ -4,7 +4,12 @@
  * ajouter un nouveau champ dans la table genre de la base de donnée
  */
 
-   /**  initiallisation du code d'erreur
+
+
+ // verification de l'ouveture,d'une session
+ include("../global/verifierConnexion.php");
+
+    /**  initiallisation du code d'erreur
    * 0 -> aucun soucis
    * 1 -> insertion dans la base de donnee impossible 
    */ 
@@ -12,9 +17,6 @@
   $_SESSION['codeErreur']["value"] = 0;
   $_SESSION['codeErreur']["message"] ="ajout d'un nouveau genre effectuer";
   $_SESSION['codeErreur']["type"]="genre";
-
- // verification de l'ouveture,d'une session
- include("../global/verifierConnexion.php");
 
  // connexion a la base de donnee
  include("../global/connexionBDD.php");
@@ -50,11 +52,6 @@
         header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
         exit();
     }
-
-        // mise a jour du code d'erreur
-        $_SESSION['codeErreur']["value"] = 0;
-        $_SESSION['codeErreur']["message"] ="ajout d'un nouveau genre effectuer";
-        $_SESSION['codeErreur']["type"]="genre";
 
 
     // redirection sur la page d'affichage

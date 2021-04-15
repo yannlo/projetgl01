@@ -4,7 +4,11 @@
  * ajouter un nouveau champ dans la table etudiant de la base de donnée
  */
 
-   /**  initiallisation du code d'erreur
+
+ // verification de l'ouveture,d'une session
+ include("../global/verifierConnexion.php");
+
+    /**  initiallisation du code d'erreur
    * 0 -> aucun soucis
    * 1 -> insertion dans la base de donnee impossible 
    */ 
@@ -12,17 +16,14 @@
   $_SESSION['codeErreur']["value"] = 0;
   $_SESSION['codeErreur']["message"] ="ajout d'un nouveau etudiant effectuer";
 
- // verification de l'ouveture,d'une session
- include("../global/verifierConnexion.php");
-
  // connexion a la base de donnee
  include("../global/connexionBDD.php");
 
  // verification de la reception des donnee par la methode post
  if(isset($_POST['nomEtudiant']) AND isset($_POST['prenomEtudiant']) AND isset($_POST['adresseEtudiant']) AND isset($_POST['codeClasse'])){
     // redefinition des variables
-    $nom = htmlspecialchars($_POST['nomEtudiant']);
-    $prenom = htmlspecialchars($_POST['prenomEtudiant']);
+    $nom = htmlspecialchars(strtoupper($_POST['nomEtudiant']));
+    $prenom = htmlspecialchars(ucwords($_POST['prenomEtudiant']));
     $adresse = htmlspecialchars($_POST['adresseEtudiant']);
     $codeClasse = $_POST['codeClasse'];
 
@@ -53,10 +54,6 @@
         header('Location: ../../test/formulaire/formulaireEtudiant.php ');
         exit();
     }
-
-    // mise a jour du code d'erreur
-    $_SESSION['codeErreur']["value"] = 0;
-    $_SESSION['codeErreur']["message"] ="ajout d'un nouveau etudiant effectuer";
 
     // redirection sur la page d'affichage
     header('Location: ../../test/formulaire/formulaireEtudiant.php ');

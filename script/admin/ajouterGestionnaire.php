@@ -4,6 +4,9 @@
  * ajouter un nouveau champ dans la table gestionnaire de la base de donnée
  */
 
+// verification de l'ouveture,d'une session
+include("../global/verifierConnexion.php");
+
    /**  initiallisation du code d'erreur
    * 0 -> aucun soucis
    * 1 -> insertion dans la base de donnee impossible 
@@ -13,8 +16,6 @@
   $_SESSION['codeErreur']["message"] ="Ajout du gestionnaire effectuer";
 
 
- // verification de l'ouveture,d'une session
- include("../global/verifierConnexion.php");
 
  // connexion a la base de donnee
  include("../global/connexionBDD.php");
@@ -87,9 +88,6 @@
 
     }
 
-    // mise a jour du message d'erreur
-    $_SESSION['codeErreur']["value"] = 0;
-    $_SESSION['codeErreur']["message"] ="Ajout du gestionnaire effectuer";
     // redirection sur la page d'affichage
     header('Location: ../../test/formulaire/formulaireGestionnaire.php  ');
     exit();

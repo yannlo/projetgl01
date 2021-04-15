@@ -4,6 +4,9 @@
  * ajouter un nouveau champ dans la table classe de la base de donnée
  */
 
+   // verification de l'ouveture d'une session
+   include("../global/verifierConnexion.php");
+
    /**  initiallisation du code d'erreur
    * 0 -> aucun soucis
    * 1 -> insertion dans la base de donnee impossible 
@@ -12,8 +15,7 @@
   $_SESSION['codeErreur']["value"] = 0;
   $_SESSION['codeErreur']["message"] ="Ajout du classe effectuer";
 
- // verification de l'ouveture d'une session
- include("../global/verifierConnexion.php");
+
 
  // connexion a la base de donnee
  include("../global/connexionBDD.php");
@@ -25,7 +27,7 @@
  
 
     // creation de la requete d'ajout de classe
-    $request = $bdd -> prepare("INSERT INTO classe (CODECL, CREATECL, LIBELLECL) VALUES (:code, :createcl,:libelle)");
+    $request = $bdd -> prepare("INSERT INTO classe (CODECL, CREATECL, LIBELLECL) VALUES (:code, :createcl, :libelle)");
 
     // generation et sauvegarde du matricule
     include("../../function/matricule/matriculeGenerateur.php");
@@ -49,9 +51,6 @@
         exit();
     }
 
-    // mise a jour des code d'erreur
-    $_SESSION['codeErreur']["value"] = 0;
-    $_SESSION['codeErreur']["message"] ="Ajout du classe effectuer";
     
     // redirection sur la page d'affichage
     header('Location: ../../test/formulaire/formulaireClasse.php ');
