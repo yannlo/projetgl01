@@ -5,7 +5,6 @@
  */
 
 
-
  // verification de l'ouveture,d'une session
  include("../global/verifierConnexion.php");
 

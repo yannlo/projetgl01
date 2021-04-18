@@ -19,8 +19,8 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque livre -->
-        <form method="post" action="../../script/php/book/supprimerLivre.php">
-            <a href="../formulaire/formulaireLivre.php">ajouter</a>
+        <form method="post" action="../../script/php/book/supprimerLivre.php" id="supForm">
+            <a href="../formulaire/formulaireLivre.php" id="linkRedirection">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
                 <tr>
@@ -76,6 +76,8 @@ include("../../script/php/global/verifierConnexion.php ");
         </p>
         
         <script src="../../script/js/global/selectAll.js"></script>
+        <script src="../../script/js/book/supprimerLivreVerif.js"></script>
+        <script src="../../script/js/book/ajouterLivreVerif.js"></script>
         
     </body>
 </html>

@@ -3,7 +3,7 @@
 /**
  * supprimer l'ensemble de valeur selectionner
  */
-
+print_r($_POST);
 
     // verification de l'ouveture d'une session
     include("../global/verifierConnexion.php");

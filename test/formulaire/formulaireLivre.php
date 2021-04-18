@@ -30,7 +30,7 @@ include("../../script/php/global/verifierConnexion.php ");
                 include("../../script/php/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table classe
-                $request = $bdd -> query("SELECT * FROM auteur ORDER BY IDAUTEUR");
+                $request = $bdd -> query("SELECT * FROM auteur WHERE DELETEAUTEUR is NULL ORDER BY IDAUTEUR");
 
                 // affichage des information de classe
                 while($champ = $request -> fetch()){
@@ -47,7 +47,7 @@ include("../../script/php/global/verifierConnexion.php ");
                 include("../../script/php/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table classe
-                $request = $bdd -> query("SELECT * FROM genre ORDER BY IDGENRE");
+                $request = $bdd -> query("SELECT * FROM genre WHERE DELETEGENRE is NULL ORDER BY IDGENRE");
 
                 // affichage des information de classe
                 while($champ = $request -> fetch()){

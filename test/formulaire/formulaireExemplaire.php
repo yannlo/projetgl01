@@ -16,7 +16,7 @@ include("../../script/php/global/verifierConnexion.php ");
         <h1>formulaire d'ajout d'exemplaire</h1>
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/php/global/php/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
         <!-- formulaire de connexion a la platform -->
         <form method="POST" action="../../script/php/copy/ajouterExemplaire.php">

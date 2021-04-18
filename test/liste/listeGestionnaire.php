@@ -19,7 +19,7 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque genstionnaire -->
-        <form method="post" action="../../script/php/admin/supprimerGestionnaire.php">
+        <form method="post" action="../../script/php/admin/supprimerGestionnaire.php" id="supForm">
             <a href="../formulaire/formulaireGestionnaire.php">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
@@ -68,5 +68,6 @@ include("../../script/php/global/verifierConnexion.php ");
         </p>
         
         <script src="../../script/js/global/selectAll.js"></script>
+        <script src="../../script/js/admin/supprimerGestionnaireVerif.js"></script>
     </body>
 </html>

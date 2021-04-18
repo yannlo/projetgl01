@@ -19,8 +19,8 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque gestionnaire -->
-        <form method="post" action="../../script/php/student/supprimerEtudiant.php">
-            <a href="../formulaire/formulaireEtudiant.php">ajouter</a>
+        <form method="post" action="../../script/php/student/supprimerEtudiant.php" id="supForm">
+            <a href="../formulaire/formulaireEtudiant.php" id="linkRedirection">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
                 <tr>
@@ -72,6 +72,8 @@ include("../../script/php/global/verifierConnexion.php ");
             <a href="../index.php"><button>retour</button></a>
         </p>
         <script src="../../script/js/global/selectAll.js"></script>
+        <script src="../../script/js/student/supprimerEtudiantVerif.js"></script>
+        <script src="../../script/js/student/ajouterEtudiantVerif.js"></script>
         
         
     </body>

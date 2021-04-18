@@ -19,7 +19,7 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque Classe -->
-        <form method="post" action="../../script/php/classroom/supprimerClasse.php">
+        <form method="post" action="../../script/php/classroom/supprimerClasse.php" id="supForm">
             <a href="../formulaire/formulaireClasse.php">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
@@ -63,6 +63,7 @@ include("../../script/php/global/verifierConnexion.php ");
         </p>
         
         <script src="../../script/js/global/selectAll.js"></script>
+        <script src="../../script/js/classroom/supprimerClasseVerif.js"></script>
         
     </body>
 </html>

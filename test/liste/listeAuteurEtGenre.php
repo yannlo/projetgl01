@@ -23,9 +23,9 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque auteur -->
-        <form method="post" action="../../script/php/genreAndAuthor/supprimerAuteur.php">
+        <form method="post" action="../../script/php/genreAndAuthor/supprimerAuteur.php" id="supForm">
             <a href="../formulaire/formulaireAuteurEtGenre.php">ajouter</a>
-            <input type="submit" value="supprimer">
+            <input type="submit" value="supprimer" >
             <table>
                 <tr>
                     <th>N°</th>
@@ -72,7 +72,7 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque genre -->
-        <form method="post" action="../../script/php/genreAndAuthor/supprimerGenre.php">
+        <form method="post" action="../../script/php/genreAndAuthor/supprimerGenre.php" id="supForm1">
             <a href="../formulaire/formulaireAuteurEtGenre.php">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
@@ -118,6 +118,8 @@ include("../../script/php/global/verifierConnexion.php ");
         </p>
         
         <script src="../../script/js/global/selectAll.js"></script>
+        <script src="../../script/js/genreAndAuthor/supprimerAuteurVerif.js"></script>
+        <script src="../../script/js/genreAndAuthor/supprimerGenreVerif.js"></script>
         
     </body>
 </html>

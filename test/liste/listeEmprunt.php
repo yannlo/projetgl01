@@ -19,9 +19,9 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque emprunt -->
-        <form method="post" action="../../script/php/loan/terminerEmprunt.php">
-            <a href="../formulaire/formulaireEmprunt.php">ajouter</a>
-            <input type="submit" value="supprimer">
+        <form method="post" action="../../script/php/loan/terminerEmprunt.php" id="supForm">
+            <a href="../formulaire/formulaireEmprunt.php" id="linkRedirection">debuter</a>
+            <input type="submit" value="terminer">
             <table>
                 <tr>
                     <th>N°</th>
@@ -77,6 +77,7 @@ include("../../script/php/global/verifierConnexion.php ");
         </p>
         
         <script src="../../script/js/global/selectAll.js"></script>
+        <script src="../../script/js/loan/ajouterEmpruntVerif.js"></script>
 
         
     </body>

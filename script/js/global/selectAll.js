@@ -33,31 +33,31 @@ function selector(select){
     let tabCheck = document.getElementsByClassName(select);
     for (let j = 0; j < tabCheck.length; j++) {  
 
-    // selection des checkbox
-    tabCheck[j].addEventListener("click",function(e){
+        // selection des checkbox
+        tabCheck[j].addEventListener("click",function(e){
 
-        //  annulation de la selection glabal
-        if(tabCheck[j].checked == false){
-            firstElt.checked = false;
-        }
-
-        // booleen verficateur de selection complet
-        let boolSelectAll = true;
-
-        // verification de la valeur de toute checkbox
-        for (let i = 1; i < tabCheck.length; i++) {
-
-            if(tabCheck[i].checked == false){
-                boolSelectAll = false;
+            //  annulation de la selection global
+            if(tabCheck[j].checked == false){
+                firstElt.checked = false;
             }
-        
-        }
-        
-        if(boolSelectAll ==true){
-            firstElt.checked = true;
-        }
 
-    });
+            // booleen verficateur de selection complet
+            let boolSelectAll = true;
+
+            // verification de la valeur de toute checkbox
+            for (let i = 1; i < tabCheck.length; i++) {
+
+                if(tabCheck[i].checked == false){
+                    boolSelectAll = false;
+                }
+            
+            }
+            
+            if(boolSelectAll ==true){
+                firstElt.checked = true;
+            }
+
+        });
 
 
     }

@@ -19,8 +19,8 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
 
         <!-- tableau contenant les informations de chaque exemplaire -->
-        <form method="post" action="../../script/php/copy/supprimerExemplaire.php">
-            <a href="../formulaire/formulaireExemplaire.php">ajouter</a>
+        <form method="post" action="../../script/php/copy/supprimerExemplaire.php" id="supForm">
+            <a href="../formulaire/formulaireExemplaire.php" id="linkRedirection">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
                 <tr>
@@ -77,6 +77,8 @@ include("../../script/php/global/verifierConnexion.php ");
         </p>
         
         <script src="../../script/js/global/selectAll.js"></script>
+        <script src="../../script/js/copy/supprimerExemplaireVerif.js"></script>
+        <script src="../../script/js/copy/ajouterExemplaireVerif.js"></script>
         
     </body>
 </html>
