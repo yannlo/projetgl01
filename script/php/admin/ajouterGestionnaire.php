@@ -33,7 +33,7 @@ include("../global/verifierConnexion.php");
     $request = $bdd -> prepare("INSERT INTO gestionnaire (CODEG, CREATEG ,NOMG, PRENOMG, EMAILG, MOTDEPASSEG, CONTACTG) VALUES (:code, :createg, :nom, :prenom,  :email, :motDePasse, :contact)");
 
     // generation et sauvegarde du matricule
-    include("../../function/matricule/matriculeGenerateur.php");
+    include("../../../function/matricule/matriculeGenerateur.php");
     $matriculeGestionnaire = matriculeGenerateur("gestionnaire","CODEG",$bdd,"GES");
 
     // verification de l'existance d'un gestionnaire
@@ -57,7 +57,7 @@ include("../global/verifierConnexion.php");
             $_SESSION['codeErreur']["message"] = $e -> getMessage();
             
             // redirection sur la page d'affichage
-            header('Location: ../../test/formulaire/formulaireGestionnaire.php ');
+            header('Location: ../../../test/formulaire/formulaireGestionnaire.php ');
             exit();
         }
 
@@ -81,7 +81,7 @@ include("../global/verifierConnexion.php");
             $_SESSION['codeErreur']["message"] = $e -> getMessage();
             
             // redirection sur la page d'affichage
-            header('Location: ../../test/formulaire/formulaireGestionnaire.php  ');
+            header('Location: ../../../test/formulaire/formulaireGestionnaire.php  ');
             exit();
         }
 
@@ -89,7 +89,7 @@ include("../global/verifierConnexion.php");
     }
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireGestionnaire.php  ');
+    header('Location: ../../../test/formulaire/formulaireGestionnaire.php  ');
     exit();
 
  }

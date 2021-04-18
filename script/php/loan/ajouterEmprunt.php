@@ -40,12 +40,12 @@
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireLivre.php ');
+        header('Location: ../../../test/formulaire/formulaireLivre.php ');
         exit();
     }
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireEmprunt.php ');
+    header('Location: ../../../test/formulaire/formulaireEmprunt.php ');
     exit();
 
  }

@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,7 +8,6 @@ include("../../script/global/verifierConnexion.php ");
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.styleTableau.css">
         <title>page de emprunt</title>
     </head>
     <body>
@@ -16,23 +15,24 @@ include("../../script/global/verifierConnexion.php ");
 
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
 
         <!-- tableau contenant les informations de chaque emprunt -->
-        <form method="post" action="../../script/loan/terminerEmprunt.php">
+        <form method="post" action="../../script/php/loan/terminerEmprunt.php">
+            <a href="../formulaire/formulaireEmprunt.php">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
                 <tr>
                     <th>N°</th>
-                    <th><input type="checkbox" value="all" name ="selector[]"></th>
+                    <th><input type="checkbox" value="all" name ="selector[]" class="selector"></th>
                     <th>Nom Etudiant</th>
                     <th>Nom Livre</th>
                     <th>Date Debut</th>
                 </tr>
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php ");
+                include("../../script/php/global/connexionBDD.php ");
 
                 // requete de selection des champs de la table emprunt
                 $request = $bdd -> query("SELECT * FROM emprunt WHERE FINEMPRUNT is null ORDER BY DEBUTEMPRUNT");
@@ -55,7 +55,7 @@ include("../../script/global/verifierConnexion.php ");
                     ?>
                         <tr>
                             <th><?php echo $i; ?></th>
-                            <th><input type="checkbox" value="<?php echo $champ["MATRICULEE"].' '.$champ["CODEEXEMPLAIRE"].' '.$champ["DEBUTEMPRUNT"] ; ?>" name ="selector[]"></th>
+                            <th><input type="checkbox" value="<?php echo $champ["MATRICULEE"].' '.$champ["CODEEXEMPLAIRE"].' '.$champ["DEBUTEMPRUNT"] ; ?>" name ="selector[]" class="selector"></th>
                             <th><?php while($champ1 = $request1 -> fetch()){ echo $champ1["NOME"]." ".$champ1["PRENOME"];} ?></th>
                             <th><?php while($champ2 = $request2 -> fetch()){ echo $champ2["CODEEXEMPLAIRE"];} ?></th>
                             <th><?php echo $date; ?></th>
@@ -76,6 +76,8 @@ include("../../script/global/verifierConnexion.php ");
             <a href="../index.php"><button>retour</button></a>
         </p>
         
+        <script src="../../script/js/global/selectAll.js"></script>
+
         
     </body>
 </html>

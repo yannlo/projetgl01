@@ -28,7 +28,7 @@ $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
     $request = $bdd -> prepare("INSERT INTO exemplaire (CODEEXEMPLAIRE, CODEL, IDETAT, CREATEEXEMPLAIRE, DATEAJOUTEXEMPLAIRE) VALUES (:code, :codeLivre, :idEtat, :createExemplaire, :dateAjout)");
 
     // generation et sauvegarde du matricule
-    include("../../function/matricule/matriculeGenerateur.php");
+    include("../../../function/matricule/matriculeGenerateur.php");
     $matriculeExemplaire = matriculeGenerateur("exemplaire","CODEEXEMPLAIRE",$bdd,"EXP");
 
     // insertion des valeurs dans la table
@@ -47,12 +47,12 @@ $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireExemplaire.php ');
+        header('Location: ../../../test/formulaire/formulaireExemplaire.php ');
         exit();
     }
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireExemplaire.php ');
+    header('Location: ../../../test/formulaire/formulaireExemplaire.php ');
     exit();
 
  }

@@ -4,9 +4,8 @@ include ("returnLastChampId.php");
 // format matricule ="GES-AA-XXX";
 
 function matriculeGenerateur($table, $idChamp, $bdd, $type){
-    // 
     /**
-     * generer un nouveau matricule a pour l'ajout dun nouveau gestionnaire
+     * generer un nouveau matricule a pour l'ajout dun nouveau element
      * $table,$idChamp,$bdd
      * $type (STD => etudiant; CLS => classe ;
      *        GES => gestionaire; 

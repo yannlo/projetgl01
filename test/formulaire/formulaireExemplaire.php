@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 
 
 ?>
@@ -16,16 +16,16 @@ include("../../script/global/verifierConnexion.php ");
         <h1>formulaire d'ajout d'exemplaire</h1>
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/php/verifierErreur.php");
         ?>
         <!-- formulaire de connexion a la platform -->
-        <form method="POST" action="../../script/copy/ajouterExemplaire.php">
+        <form method="POST" action="../../script/php/copy/ajouterExemplaire.php">
             <p>
                 <label for="idLivre"> Selectionner le livre :</label>
                 <select name="idLivre" id="idLivre">
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php");
+                include("../../script/php/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table livre
                 $request = $bdd -> query("SELECT * FROM livre ORDER BY TITREL");
@@ -43,7 +43,7 @@ include("../../script/global/verifierConnexion.php ");
                 <select name="idEtat" id="idEtat">
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php");
+                include("../../script/php/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table etat
                 $request = $bdd -> query("SELECT * FROM etat ORDER BY IDETAT");

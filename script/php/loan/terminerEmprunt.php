@@ -36,38 +36,40 @@
     for($i=0;$i<count($selector);$i++){
         // separation des information de la chaine
         $tableauSeparationValeur = preg_split('# #',$selector[$i]);
-        print_r($tableauSeparationValeur);
-        
-        // tentative d'insertion dans la table
-        try {
-            $request ->execute(array(
-                "fin" => date("Y-m-d"),
-                "matricule" => $tableauSeparationValeur[0],
-                "code" => $tableauSeparationValeur[1],
-                "debut" =>$tableauSeparationValeur[2]
-            ));
-            $_SESSION['codeErreur']["message"].="- $selector[$i] <br/> ";
-        
-        } catch (Exception $e) {
-            // modification du code d'erreur
-            $_SESSION['codeErreur']["value"] = 1;
-
-            // verification de la premier suppression
-            if($i == 0){
-                $_SESSION['codeErreur']["message"] = $e -> getMessage();
-            }else{
-                $_SESSION['codeErreur']["message"] .= $e -> getMessage();
+        if($selector[$i]!='all'){
+            // tentative d'insertion dans la table
+            try {
+                $request ->execute(array(
+                    "fin" => date("Y-m-d"),
+                    "matricule" => $tableauSeparationValeur[0],
+                    "code" => $tableauSeparationValeur[1],
+                    "debut" =>$tableauSeparationValeur[2]
+                ));
+                $_SESSION['codeErreur']["message"].="- $selector[$i] <br/> ";
+            
+            } catch (Exception $e) {
+                // modification du code d'erreur
+                $_SESSION['codeErreur']["value"] = 1;
+    
+                // verification de la premier suppression
+                if($i == 0){
+                    $_SESSION['codeErreur']["message"] = $e -> getMessage();
+                }else{
+                    $_SESSION['codeErreur']["message"] .= $e -> getMessage();
+                }
+    
+                // redirection sur la page d'affichage
+                header('Location: ../../../test/liste/listeEmprunt.php ');
+                exit();
             }
-
-            // redirection sur la page d'affichage
-            header('Location: ../../test/liste/listeEmprunt.php ');
-            exit();
+            
         }
+        
     }
     
  
      // redirection sur la page d'affichage
-     header('Location: ../../test/liste/listeEmprunt.php ');
+     header('Location: ../../../test/liste/listeEmprunt.php ');
      exit();
  
   }

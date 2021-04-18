@@ -31,7 +31,7 @@
     $request = $bdd -> prepare("INSERT INTO etudiant (MATRICULEE, CODECL , CREATEE, NOME, PRENOME,  ADRESSEE) VALUES (:matricule, :codel, :createe, :nom, :prenom,  :adresse)");
 
     // generation et sauvegarde du matricule
-    include("../../function/matricule/matriculeGenerateur.php");
+    include("../../../function/matricule/matriculeGenerateur.php");
     $matriculeEtudiant = matriculeGenerateur("etudiant","MATRICULEE",$bdd,"STD");
 
     // insertion des valeurs dans la table
@@ -51,12 +51,12 @@
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
         
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireEtudiant.php ');
+        header('Location: ../../../test/formulaire/formulaireEtudiant.php ');
         exit();
     }
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireEtudiant.php ');
+    header('Location: ../../../test/formulaire/formulaireEtudiant.php ');
     exit();
 
  }

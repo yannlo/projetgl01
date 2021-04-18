@@ -30,7 +30,7 @@
     $request = $bdd -> prepare("INSERT INTO classe (CODECL, CREATECL, LIBELLECL) VALUES (:code, :createcl, :libelle)");
 
     // generation et sauvegarde du matricule
-    include("../../function/matricule/matriculeGenerateur.php");
+    include("../../../function/matricule/matriculeGenerateur.php");
     $matriculeLivre = matriculeGenerateur("classe","CODECL",$bdd,"CLS");
 
     // insertion des valeurs dans la table
@@ -47,13 +47,13 @@
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireClasse.php ');
+        header('Location: ../../../test/formulaire/formulaireClasse.php ');
         exit();
     }
 
     
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireClasse.php ');
+    header('Location: ../../../test/formulaire/formulaireClasse.php ');
     exit();
 
  }

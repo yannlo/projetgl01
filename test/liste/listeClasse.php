@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,7 +8,6 @@ include("../../script/global/verifierConnexion.php ");
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.styleTableau.css">
         <title>page de classe</title>
     </head>
     <body>
@@ -16,22 +15,23 @@ include("../../script/global/verifierConnexion.php ");
 
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
 
         <!-- tableau contenant les informations de chaque Classe -->
-        <form method="post" action="../../script/etudiant/supprimerEtudiant.php">
+        <form method="post" action="../../script/php/classroom/supprimerClasse.php">
+            <a href="../formulaire/formulaireClasse.php">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
                 <tr>
                     <th>N°</th>
                     <th>Code</th>
-                    <th><input type="checkbox" value="all" name ="selector[]"></th>
+                    <th><input type="checkbox" value="all" name ="selector[]" class="selector"></th>
                     <th>Nom</th>
                 </tr>
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php ");
+                include("../../script/php/global/connexionBDD.php ");
 
                 // requete de selection des champs de la table classe
                 $request = $bdd -> query("SELECT * FROM classe WHERE DELETECL is null ORDER BY LIBELLECL");
@@ -43,7 +43,7 @@ include("../../script/global/verifierConnexion.php ");
                 <tr>
                     <th><?php echo $i; ?></th>
                     <th><?php echo $champ["CODECL"]; ?></th>
-                    <th><input type="checkbox" value="<?php echo $champ["CODECL"]; ?>" name ="selector[]"></th>
+                    <th><input type="checkbox" value="<?php echo $champ["CODECL"]; ?>" name ="selector[]" class="selector"></th>
                     <th><?php echo $champ["LIBELLECL"]; ?></th>
                 </tr>
 
@@ -62,6 +62,7 @@ include("../../script/global/verifierConnexion.php ");
             <a href="../index.php"><button>retour</button></a>
         </p>
         
+        <script src="../../script/js/global/selectAll.js"></script>
         
     </body>
 </html>

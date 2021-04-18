@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,10 +14,10 @@ include("../../script/global/verifierConnexion.php ");
         <h1>formulaire d'ajout de classe</h1>
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
         <!-- formulaire de connexion a la platform -->
-        <form method="POST" action="../../script/classroom/ajouterClasse.php">
+        <form method="POST" action="../../script/php/classroom/ajouterClasse.php">
             <p><label for="libelleClasse"> Entrer votre nom de la classe:<input type="text" name="libelleClasse" id="libelleClasse"></label></p>
             <input type="submit" value="envoyer">
         </form>

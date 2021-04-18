@@ -1,5 +1,5 @@
 <?php
-include("../script/global/verifierConnexion.php ");
+include("../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,35 +12,14 @@ include("../script/global/verifierConnexion.php ");
 <body>
     <h1>Acceuil</h1>
     <div id="formulaire">
-        <h2>liste des formulaire</h2>
+        <h2>formulaire</h2>
         <p>
             <a href="formulaire/formulaireConnexion.php"> formulaire de connexion</a>
-        </p>
-        <p>
-            <a href="formulaire/formulaireGestionnaire.php">formulaire d'ajout de gestionnaire</a>
-        </p>
-        <p>
-            <a href="formulaire/formulaireClasse.php">formulaire d'ajout de classe</a>
-        </p>
-        <p>
-            <a href="formulaire/formulaireEtudiant.php">formulaire d'ajout d'etudiant</a>
-        </p>
-        <p>
-            <a href="formulaire/formulaireLivre.php">formulaire d'ajout de livre</a>
-        </p>
-        <p>
-            <a href="formulaire/formulaireExemplaire.php">formulaire d'ajout d'exemplaire</a>
-        </p>
-        <p>
-            <a href="formulaire/formulaireAuteurEtGenre.php">formulaire d'ajout d'auteur et de genre</a>
-        </p>
-        <p>
-            <a href="formulaire/formulaireEmprunt.php">formulaire d'ajout d'emprunt</a>
         </p>
     </div>
 
     <div id="liste">
-        <h2>liste des listes</h2>
+        <h2>listes</h2>
 
         <p>
             <a href="liste/listeGestionnaire.php">liste de gestionnaire</a>
@@ -64,7 +43,15 @@ include("../script/global/verifierConnexion.php ");
             <a href="liste/listeEmprunt.php">liste d'emprunt</a>
         </p>
     </div>
+
+    <div id="envoieMail">
+        <h2>Envoie de mail</h2>
+        <p>
+            <a href="envoieMail.php">envoie un mail de test</a>
+        </p>
+    </div>
     
+
     
 </body>
 </html>

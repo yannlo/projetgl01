@@ -31,7 +31,7 @@
     $request = $bdd -> prepare("INSERT INTO genre (IDGENRE, CREATEGENRE, NOMGENRE) VALUES (:idgenre, :createGenre, :nom)");
 
     // generation et sauvegarde du matricule
-    include("../../function/matricule/matriculeSimple.php");
+    include("../../../function/matricule/matriculeSimple.php");
     $matriculeGenre = matriculeSimple("genre","IDGENRE",$bdd);
 
     // insertion des valeurs dans la table
@@ -49,13 +49,13 @@
         $_SESSION['codeErreur']["type"]="genre";
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
+        header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
         exit();
     }
 
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
+    header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
     exit();
 
  }

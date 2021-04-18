@@ -31,7 +31,7 @@ include("../global/verifierConnexion.php");
     $request = $bdd -> prepare("INSERT INTO auteur ( IDAUTEUR, CREATEAUTEUR, NOMAUTEUR) VALUES (:idauteur, :createAuteur, :nom)");
 
         // generation et sauvegarde du matricule
-        include("../../function/matricule/matriculeSimple.php");
+        include("../../../function/matricule/matriculeSimple.php");
         $matriculeAuteur = matriculeSimple("auteur","IDAUTEUR",$bdd);
 
     // insertion des valeurs dans la table
@@ -49,13 +49,13 @@ include("../global/verifierConnexion.php");
         $_SESSION['codeErreur']["type"]="auteur";
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
+        header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
         exit();
     }
 
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireAuteurEtGenre.php ');
+    header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
     exit();
 
  }

@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 
 
 ?>
@@ -16,16 +16,16 @@ include("../../script/global/verifierConnexion.php ");
         <h1>formulaire d'ajout d'emprunt</h1>
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
         <!-- formulaire de connexion a la platform -->
-        <form method="POST" action="../../script/loan/ajouterEmprunt.php">
+        <form method="POST" action="../../script/php/loan/ajouterEmprunt.php">
             <p>
                 <label for="matriculeEtudiant"> Selectionner l'etudiant :</label>
                 <select name="matriculeEtudiant" id="matriculeEtudiant">
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php");
+                include("../../script/php/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table etudiant
                 $request = $bdd -> query("SELECT * FROM etudiant ORDER BY NOME ");
@@ -43,7 +43,7 @@ include("../../script/global/verifierConnexion.php ");
                 <select name="codeExemplaire" id="codeExemplaire">
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php");
+                include("../../script/php/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table exemplaire
                 $request = $bdd -> query("SELECT * FROM exemplaire ORDER BY CODEEXEMPLAIRE");

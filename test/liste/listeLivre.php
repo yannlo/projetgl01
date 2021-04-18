@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,7 +8,6 @@ include("../../script/global/verifierConnexion.php ");
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.styleTableau.css">
         <title>page de livre</title>
     </head>
     <body>
@@ -16,17 +15,18 @@ include("../../script/global/verifierConnexion.php ");
 
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
 
         <!-- tableau contenant les informations de chaque livre -->
-        <form method="post" action="../../script/book/supprimerLivre.php">
+        <form method="post" action="../../script/php/book/supprimerLivre.php">
+            <a href="../formulaire/formulaireLivre.php">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
                 <tr>
                     <th>N°</th>
                     <th>Code</th>
-                    <th><input type="checkbox" value="all" name ="selector[]"></th>
+                    <th><input type="checkbox" value="all" name ="selector[]" class="selector"></th>
                     <th>Nom</th>
                     <th>Auteur</th>
                     <th>Genre</th>
@@ -34,7 +34,7 @@ include("../../script/global/verifierConnexion.php ");
                 </tr>
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php ");
+                include("../../script/php/global/connexionBDD.php ");
 
                 // requete de selection des champs de la table livre
                 $request = $bdd -> query("SELECT * FROM livre WHERE DELETEL is null ORDER BY TITREL");
@@ -53,7 +53,7 @@ include("../../script/global/verifierConnexion.php ");
                         <tr>
                             <th><?php echo $i; ?></th>
                             <th><?php echo $champ["CODEL"]; ?></th>
-                            <th><input type="checkbox" value="<?php echo $champ["CODEL"]; ?>" name ="selector[]"></th>
+                            <th><input type="checkbox" value="<?php echo $champ["CODEL"]; ?>" name ="selector[]" class="selector"></th>
                             <th><?php echo $champ["TITREL"]; ?></th>
                             <th><?php while($champ1 = $request1 -> fetch()){ echo $champ1["NOMAUTEUR"];} ?></th>
                             <th><?php while($champ2 = $request2 -> fetch()){ echo $champ2["NOMGENRE"];} ?></th>
@@ -75,6 +75,7 @@ include("../../script/global/verifierConnexion.php ");
             <a href="../index.php"><button>retour</button></a>
         </p>
         
+        <script src="../../script/js/global/selectAll.js"></script>
         
     </body>
 </html>

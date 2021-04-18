@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,7 +8,6 @@ include("../../script/global/verifierConnexion.php ");
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.styleTableau.css">
         <title>page de exemplaire</title>
     </head>
     <body>
@@ -16,24 +15,25 @@ include("../../script/global/verifierConnexion.php ");
 
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
 
         <!-- tableau contenant les informations de chaque exemplaire -->
-        <form method="post" action="../../script/copy/supprimerExemplaire.php">
+        <form method="post" action="../../script/php/copy/supprimerExemplaire.php">
+            <a href="../formulaire/formulaireExemplaire.php">ajouter</a>
             <input type="submit" value="supprimer">
             <table>
                 <tr>
                     <th>N°</th>
                     <th>Code</th>
-                    <th><input type="checkbox" value="all" name ="selector[]"></th>
+                    <th><input type="checkbox" value="all" name ="selector[]" class="selector"></th>
                     <th>Nom Livre</th>
                     <th>Etat</th>
                     <th>Date d'ajout</th>
                 </tr>
                 <?php
                 // connexion a la base de donnee
-                include("../../script/global/connexionBDD.php ");
+                include("../../script/php/global/connexionBDD.php ");
 
                 // requete de selection des champs de la table exemplaire
                 $request = $bdd -> query("SELECT * FROM exemplaire WHERE DELETEEXEMLPAIRE is null ORDER BY CODEL");
@@ -55,7 +55,7 @@ include("../../script/global/verifierConnexion.php ");
                         <tr>
                             <th><?php echo $i; ?></th>
                             <th><?php echo $champ["CODEEXEMPLAIRE"]; ?></th>
-                            <th><input type="checkbox" value="<?php echo $champ["CODEEXEMPLAIRE"]; ?>" name ="selector[]"></th>
+                            <th><input type="checkbox" value="<?php echo $champ["CODEEXEMPLAIRE"]; ?>" name ="selector[]" class="selector"></th>
                             <th><?php while($champ1 = $request1 -> fetch()){ echo $champ1["TITREL"];} ?></th>
                             <th><?php while($champ2 = $request2 -> fetch()){ echo $champ2["NOMETAT"];} ?></th>
                             <th><?php echo $date; ?></th>
@@ -76,6 +76,7 @@ include("../../script/global/verifierConnexion.php ");
             <a href="../index.php"><button>retour</button></a>
         </p>
         
+        <script src="../../script/js/global/selectAll.js"></script>
         
     </body>
 </html>

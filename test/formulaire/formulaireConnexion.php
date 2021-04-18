@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,10 +14,10 @@ include("../../script/global/verifierConnexion.php ");
         <h1>formulaire de connexion</h1>
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
         ?>
         <!-- formulaire de connexion a la platform -->
-        <form method="POST" action="../../script/connection/verificationAdmin.php">
+        <form method="POST" action="../../script/php/connection/verificationAdmin.php">
             <p><label for="emailUser"> Entrer votre email :<input type="email" name="emailUser" id="emailUser"></label></p>
             <p><label for="passwordUser"> Entrer votre mot de passe<input type="password" name="passwordUser" id="passwordUser"></label></p>
             <input type="submit" value="envoyer">

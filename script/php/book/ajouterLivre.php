@@ -30,7 +30,7 @@ $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
     $request = $bdd -> prepare("INSERT INTO livre (CODEL, IDAUTEUR, IDGENRE, CREATEL, TITREL, NBPAGEL) VALUES (:code, :idAuteur, :idGenre, :createl, :titre, :nbPage)");
 
     // generation et sauvegarde du matricule
-    include("../../function/matricule/matriculeGenerateur.php");
+    include("../../../function/matricule/matriculeGenerateur.php");
     $matriculeLivre = matriculeGenerateur("livre","CODEL",$bdd,"LIV");
 
     // insertion des valeurs dans la table
@@ -50,13 +50,13 @@ $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../test/formulaire/formulaireLivre.php ');
+        header('Location: ../../../test/formulaire/formulaireLivre.php ');
         exit();
     }
 
 
     // redirection sur la page d'affichage
-    header('Location: ../../test/formulaire/formulaireLivre.php ');
+    header('Location: ../../../test/formulaire/formulaireLivre.php ');
     exit();
 
  }

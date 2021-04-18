@@ -4,7 +4,7 @@
  */
 
  // verification de l'existance d'une session
- include("../../script/global/verifierConnexion.php");
+ include("../global/verifierConnexion.php");
 
   /**  initiallisation du code d'erreur
    * 0 -> aucun soucis
@@ -30,25 +30,33 @@ if(isset($_POST['emailUser']) AND isset($_POST['passwordUser'])){
 
     // teste des valeurs recuperer par la requete
     while($champ = $request ->fetch()){
+        print_r($champ);
 
         // verification du mot de passe et de l'email
         if($champ["EMAILG"] == $email AND password_verify($password, $champ["MOTDEPASSEG"])){
-            // initalisation de la session
-            session_start();
 
-            // enregistrement des informations de connexion
-            $_SESSION["matricule"] = $champ["CODEG"];
-            $_SESSION["nomAdmin"] = $champ["NOMG"];
-            $_SESSION["prenomAdmin"] = $champ["PRENOMG"];
-            header('Location: ../../test/formulaire/formulaireConnexion.php ');
-            exit();
+            if($champ["DELETEG"]==null){
+                // enregistrement des informations de connexion
+                $_SESSION["matricule"] = $champ["CODEG"];
+                $_SESSION["nomAdmin"] = $champ["NOMG"];
+                $_SESSION["prenomAdmin"] = $champ["PRENOMG"];
+
+                header('Location: ../../../test/formulaire/formulaireConnexion.php ');
+                exit();
+            }
+            else{
+                $_SESSION['codeErreur']["value"] = 1;
+                $_SESSION['codeErreur']["message"] ="compte admin supprimer";    
+                header('Location: ../../../test/formulaire/formulaireConnexion.php ');
+                exit();
+            }
         }
     }
 
     // modification du code d'erreur
     $_SESSION['codeErreur']["value"] = 1;
     $_SESSION['codeErreur']["message"] ="information de connexion invalide";
-    header('Location: ../../test/formulaire/formulaireConnexion.php ');
+    header('Location: ../../../test/formulaire/formulaireConnexion.php ');
     exit();
 
 }

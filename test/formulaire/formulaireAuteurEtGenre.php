@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,11 +16,11 @@ include("../../script/global/verifierConnexion.php ");
         <?php 
         // verifier si un code d'erreur existe
         if(isset($_SESSION['codeErreur']) AND $_SESSION['codeErreur']['type']==="auteur"){
-            include("../../script/global/verifierErreur.php");
+            include("../../script/php/global/verifierErreur.php");
         }
         ?>
         <!-- formulaire de connexion a la platform -->
-        <form method="POST" action="../../script/genreAndAuthor/ajouterAuteur.php">
+        <form method="POST" action="../../script/php/genreAndAuthor/ajouterAuteur.php">
             <p><label for="nomAuteur"> Entrer votre nom de l'auteur:<input type="text" name="nomAuteur" id="nomAuteur"></label></p>
             <input type="submit" value="envoyer">
         </form>
@@ -32,11 +32,11 @@ include("../../script/global/verifierConnexion.php ");
         <?php 
         // verifier si un code d'erreur existe 
         if(isset($_SESSION['codeErreur']) AND $_SESSION['codeErreur']['type']==="genre"){
-            include("../../script/global/verifierErreur.php");
+            include("../../script/php/global/verifierErreur.php");
         }
         ?>
         <!-- formulaire de connexion a la platform -->
-        <form method="POST" action="../../script/genreAndAuthor/ajouterGenre.php">
+        <form method="POST" action="../../script/php/genreAndAuthor/ajouterGenre.php">
             <p><label for="nomGenre"> Entrer votre nom du genre:<input type="text" name="nomGenre" id="nomGenre"></label></p>
             <input type="submit" value="envoyer">
         </form>

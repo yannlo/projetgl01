@@ -1,6 +1,6 @@
 <?php
 // verification de l'existance d'une session
-include("../../script/global/verifierConnexion.php ");
+include("../../script/php/global/verifierConnexion.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,12 +14,12 @@ include("../../script/global/verifierConnexion.php ");
         <h1>formulaire d'ajout de gestionnaire</h1>
         <?php 
         // verifier si un code d'erreur existe 
-        include("../../script/global/verifierErreur.php");
+        include("../../script/php/global/verifierErreur.php");
 
         ?>
         
         <!-- formulaire de connexion a la platform -->
-        <form method="POST" action="../../script/admin/ajouterGestionnaire.php">
+        <form method="POST" action="../../script/php/admin/ajouterGestionnaire.php">
             <p><label for="nomAdmin"> Entrer votre nom :<input type="text" name="nomAdmin" id="nomAdmin"></label></p>
             <p><label for="prenomAdmin"> Entrer votre prenom :<input type="text" name="prenomAdmin" id="prenomAdmin"></label></p>
             <p><label for="emailAdmin"> Entrer votre email :<input type="email" name="emailAdmin" id="emailAdmin"></label></p>

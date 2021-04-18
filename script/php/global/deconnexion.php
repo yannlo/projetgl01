@@ -1,6 +1,6 @@
 <?php
 // verifie si une session est en cour
-include ('function/verified_session.php');
+include ('verifierConnexion.php');
 
 // detruit la session en cour
 session_destroy();
