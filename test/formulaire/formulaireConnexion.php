@@ -1,6 +1,7 @@
 <?php
 // verification de l'existance d'une session
 include("../../script/php/global/verifierConnexion.php ");
+include("../../script/php/connection/verificationExistanceAdmin.php ");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,8 +19,8 @@ include("../../script/php/global/verifierConnexion.php ");
         ?>
         <!-- formulaire de connexion a la platform -->
         <form method="POST" action="../../script/php/connection/verificationAdmin.php">
-            <p><label for="emailUser"> Entrer votre email :<input type="email" name="emailUser" id="emailUser"></label></p>
-            <p><label for="passwordUser"> Entrer votre mot de passe<input type="password" name="passwordUser" id="passwordUser"></label></p>
+            <p><label for="emailUser"> Entrer votre email :<input type="email" name="emailUser" id="emailUser" required></label></p>
+            <p><label for="passwordUser"> Entrer votre mot de passe<input type="password" name="passwordUser" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="passwordUser" required></label></p>
             <input type="submit" value="envoyer">
         </form>
 
