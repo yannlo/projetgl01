@@ -1,0 +1,10 @@
+footer{
+    text-align: center;
+    background-color: #0066CC;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+footer p#copyright{
+    padding: 2px 0;
+}

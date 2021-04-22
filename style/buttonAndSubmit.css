@@ -1,0 +1,31 @@
+/** general effect */
+
+.btnAndSbt{
+    display:inline-block;
+    font-size: 1em;
+    min-width: 100px;
+    height: 30px;
+    padding: 0 2%;
+    margin: 0 1%;
+    color: #444;
+    background-color:rgb(240, 239, 239);
+    border-radius: 4px;
+    border: none;
+
+}
+
+/** cancel link style */
+a.btnAndSbt{
+    text-decoration: none;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+/* hover select */
+.btnAndSbt:hover{
+    color: #fff;
+    font-weight: bold;
+    background-color: #0066ff;
+    transition: all 0.2s;
+}

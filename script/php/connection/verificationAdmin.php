@@ -41,13 +41,13 @@ if(isset($_POST['emailUser']) AND isset($_POST['passwordUser'])){
                 $_SESSION["nomAdmin"] = $champ["NOMG"];
                 $_SESSION["prenomAdmin"] = $champ["PRENOMG"];
 
-                header('Location: ../../../test/formulaire/formulaireConnexion.php ');
+                header('Location: ../../../index.php ');
                 exit();
             }
             else{
                 $_SESSION['codeErreur']["value"] = 1;
                 $_SESSION['codeErreur']["message"] ="compte admin supprimer";    
-                header('Location: ../../../test/formulaire/formulaireConnexion.php ');
+                header('Location: ../../../index.php ');
                 exit();
             }
         }
@@ -56,7 +56,7 @@ if(isset($_POST['emailUser']) AND isset($_POST['passwordUser'])){
     // modification du code d'erreur
     $_SESSION['codeErreur']["value"] = 1;
     $_SESSION['codeErreur']["message"] ="information de connexion invalide";
-    header('Location: ../../../test/formulaire/formulaireConnexion.php ');
+    header('Location: ../../../index.php ');
     exit();
 
 }

@@ -4,7 +4,5 @@ include ('verifierConnexion.php');
 
 // detruit la session en cour
 session_destroy();
-
-// redirige vers la page d'acceuil
-header('location: index.php');
+header('location: ../../../index.php');
 ?>

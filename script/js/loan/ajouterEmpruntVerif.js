@@ -24,7 +24,7 @@ redirection.addEventListener("click", function(e){
                 alert(reponse["message"]);   
             }else{
                 // soumission du formulaire
-                window.location.href = "../formulaire/formulaireEmprunt.php";
+                window.location.href = "#";
             }
 
 
@@ -34,7 +34,7 @@ redirection.addEventListener("click", function(e){
     };
 
     // detail de l'envoie de le requete
-    xhr.open("POST", "../../script/php/loan/verificationExistance.php", true);
+    xhr.open("POST", "script/php/loan/verificationExistance.php", true);
     xhr.responseType ="json";
     // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();

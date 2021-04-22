@@ -1,0 +1,15 @@
+h1{
+    width:100%;
+    margin-top: 130px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.center{
+    margin-bottom:100px;
+}
+
+section#part1{
+    min-height: 100vh;
+    margin-bottom: 100px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style/styleGeneral.css">
+    <link rel="stylesheet" href="../../../style/inputAndLabel.css">
+    <title>inputAndLabel</title>
+</head>
+<body>
+    <form>
+        <p>
+            <label for="emailUser"> Entrer votre email :
+                <input type="email" name="emailUser" id="emailUser" required>
+            </label>
+        </p>
+        <p>
+            <label for="passwordUser"> Entrer votre mot de passe :
+                <input type="password" name="passwordUser" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="passwordUser" required>
+            </label>
+        </p>
+        <p>
+            <label for="selection"> Selectionner element :
+                <select name="selection" id="selection" required>
+                    <option value="1">value 1</option>
+                    <option value="2">value 2</option>
+                    <option value="3">value 3</option>
+                </select>
+            </label>
+        </p>
+    </form>
+    
+</body>
+</html>

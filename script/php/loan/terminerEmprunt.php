@@ -59,7 +59,7 @@
                 }
     
                 // redirection sur la page d'affichage
-                header('Location: ../../../test/liste/listeEmprunt.php ');
+                header('Location: ../../../listeEmprunt.php ');
                 exit();
             }
             
@@ -69,12 +69,16 @@
     
  
      // redirection sur la page d'affichage
-     header('Location: ../../../test/liste/listeEmprunt.php ');
+     header('Location: ../../../listeEmprunt.php ');
      exit();
  
+  }else{
+    $_SESSION['codeErreur']["value"] = 2;
+    $_SESSION['codeErreur']["message"] ="aucun element selectionner";
+
+    // redirection sur la page d'affichage
+    header('Location: ../../../listeEmprunt.php ');
+    exit();
   }
  
- ?>
-
-
 ?>

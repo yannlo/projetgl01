@@ -1,0 +1,43 @@
+form{
+    text-align: left;
+    width: 300px;
+}
+
+form label {
+    text-align: left;
+    display: inline-block;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+form label input, form label select{
+    margin: 3px 0;
+    padding: 3px 10px;
+    display: block;
+    font-size: 0.92em;
+    width: 280px;
+    background-color: rgb(223, 223, 223);
+    border:none;
+    border-radius:3px;
+
+
+}
+form p{
+    width: 300px;
+}
+form label select{
+    width: 300px;
+}
+
+form label input:active{
+    border:none;
+}
+
+form input[type="submit"]{
+    margin-top: 10px;
+    width: 300px;
+    height:30px;
+    font-size: 1.2em;
+    text-transform:uppercase;
+}
+

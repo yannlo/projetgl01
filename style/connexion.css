@@ -1,0 +1,33 @@
+
+body{
+    background-color:rgb(168, 168, 168);
+}
+#connectionForm{
+    height:250px;
+    width: 300px;
+    margin:30vh auto 0;
+    background-color:#fff;
+    padding: 20px 50px 40px;
+    border-radius: 5px;
+}
+
+
+#connectionForm h1{
+    width: 300px;
+    margin-bottom: 20px;
+
+}
+
+@media (max-width: 450px){
+    #connectionForm{
+        padding: 20px 4%;
+    }
+}
+
+#forget{
+    text-decoration: none;
+    color: rgb(0, 153, 255);
+}
+#forget:hover{
+    text-decoration: underline;
+}
