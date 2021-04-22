@@ -94,6 +94,7 @@ include("script/php/asset/header.php");
                     while($champ = $request -> fetch()){
                         echo '<option value="'.$champ['CODEL'].'">'.$champ['TITREL'].'</option>';
                     }
+
                     ?>
                 </select>
                 </label>
@@ -131,6 +132,7 @@ include("script/php/asset/header.php");
 
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="script/js/loan/trierExemplaire.js"></script>
+        <script src="script/js/loan/trierEtudiant.js"></script>
         
     </body>
 </html>

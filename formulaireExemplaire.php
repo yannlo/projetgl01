@@ -51,7 +51,7 @@ include("script/php/asset/header.php");
                 include("script/php/global/connexionBDD.php");
 
                 // requete de recuperation de champ de la table livre
-                $request = $bdd -> query("SELECT * FROM livre ORDER BY TITREL");
+                $request = $bdd -> query("SELECT * FROM livre WHERE DELETEL is null ORDER BY TITREL ");
 
                 // affichage des information de livre
                 while($champ = $request -> fetch()){
