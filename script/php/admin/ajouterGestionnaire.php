@@ -57,7 +57,7 @@ include("../global/verifierConnexion.php");
             $_SESSION['codeErreur']["message"] = $e -> getMessage();
             
             // redirection sur la page d'affichage
-            header('Location: ../../../test/formulaire/formulaireGestionnaire.php ');
+            header('Location: ../../../listeGestionnaire.php ');
             exit();
         }
 
@@ -81,7 +81,7 @@ include("../global/verifierConnexion.php");
             $_SESSION['codeErreur']["message"] = $e -> getMessage();
             
             // redirection sur la page d'affichage
-            header('Location: ../../../test/formulaire/formulaireGestionnaire.php  ');
+            header('Location: ../../../listeGestionnaire.php  ');
             exit();
         }
 
@@ -89,7 +89,7 @@ include("../global/verifierConnexion.php");
     }
 
     // redirection sur la page d'affichage
-    header('Location: ../../../test/formulaire/formulaireGestionnaire.php  ');
+    header('Location: ../../../listeGestionnaire.php  ');
     exit();
 
  }

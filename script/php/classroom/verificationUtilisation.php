@@ -28,14 +28,14 @@ if(isset($_POST['selector'])){
             // verification de l'utilisation de la classe
             if($selector[$i] == $champ["CODECL"]){
                 $codeErreur['code'] = 2;
-                $message .= $champ["CODECL"]."<br/>";
+                $message .= $champ["CODECL"]." || ";
             }
         }
     }
 
     // formatage du message d'erreur
     if($codeErreur['code']==2){
-        $codeErreur['message']="les classes suivantes ne peuvent etre supprimer: </br>";
+        $codeErreur['message']="les classes suivantes ne peuvent etre supprimer:  ";
         $codeErreur['message'] .=$message;
     }
 

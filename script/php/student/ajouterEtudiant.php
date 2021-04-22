@@ -51,12 +51,12 @@
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
         
         // redirection sur la page d'affichage
-        header('Location: ../../../test/formulaire/formulaireEtudiant.php ');
+        header('Location: ../../../listeEtudiant.php ');
         exit();
     }
 
     // redirection sur la page d'affichage
-    header('Location: ../../../test/formulaire/formulaireEtudiant.php ');
+    header('Location: ../../../listeEtudiant.php ');
     exit();
 
  }

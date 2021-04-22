@@ -47,12 +47,12 @@ $_SESSION['codeErreur']["message"] ="Ajout du livre effectuer";
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../../test/formulaire/formulaireExemplaire.php ');
+        header('Location: ../../../listeExemplaire.php ');
         exit();
     }
 
     // redirection sur la page d'affichage
-    header('Location: ../../../test/formulaire/formulaireExemplaire.php ');
+    header('Location: ../../../listeExemplaire.php ');
     exit();
 
  }

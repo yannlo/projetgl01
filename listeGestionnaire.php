@@ -41,7 +41,7 @@ include("script/php/connection/verifConnexionActive.php ");
         <!-- tableau contenant les informations de chaque genstionnaire -->
         <form method="post" action="script/php/admin/supprimerGestionnaire.php" id="supForm">
         <div class="formElt">
-            <a href="#" class="btnAndSbt">ajouter</a>
+            <a href="formulaireGestionnaire.php" class="btnAndSbt">ajouter</a>
             <input type="submit" value="supprimer" class="btnAndSbt">
         </div>
             <table>

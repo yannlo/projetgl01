@@ -54,7 +54,7 @@
                 }
     
                 // redirection sur la page d'affichage
-                header('Location: ../../../test/liste/listeExemplaire.php ');
+                header('Location: ../../../listeExemplaire.php ');
                 exit();
             }
             
@@ -64,7 +64,7 @@
  
  
      // redirection sur la page d'affichage
-     header('Location: ../../../test/liste/listeExemplaire.php ');
+     header('Location: ../../../listeExemplaire.php ');
      exit();
  
   }

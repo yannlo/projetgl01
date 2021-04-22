@@ -28,14 +28,17 @@ if(isset($_POST['selector'])){
             // verification de l'utilisation de genre
             if($selector[$i] == $champ["IDGENRE"]){
                 $codeErreur['code'] = 2;
-                $message .= $champ["IDGENRE"]."<br/>";
+                $request2 =$bdd-> query("SELECT * FROM genre WHERE IDGENRE ='".$selector[$i]."'");
+                while($champ2 = $request2 -> fetch()){
+                    $message .= $champ2["NOMGENRE"].", ";
+                }
             }
         }
     }
 
     // formatage du message d'erreur
     if($codeErreur['code']==2){
-        $codeErreur['message']="les genres suivantes ne peuvent etre supprimer: </br>";
+        $codeErreur['message']="les genres suivantes ne peuvent etre supprimer:";
         $codeErreur['message'] .=$message;
     }
 

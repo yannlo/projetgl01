@@ -54,7 +54,7 @@
                 }
     
                 // redirection sur la page d'affichage
-                header('Location: ../../../test/liste/listeGestionnaire.php ');
+                header('Location: ../../..listeGestionnaire.php ');
                 exit();
             }   
         }
@@ -62,12 +62,18 @@
     
  
      // redirection sur la page d'affichage
-     header('Location: ../../../test/liste/listeGestionnaire.php ');
+     header('Location: ../../../listeGestionnaire.php ');
      exit();
  
+  }else{
+
+    $_SESSION['codeErreur']["value"] = 2;
+    $_SESSION['codeErreur']["message"] ="Aucun elelment selectionner";
+  
+           // redirection sur la page d'affichage
+     header('Location: ../../../listeGestionnaire.php ');
+     exit();
   }
  
  ?>
 
-
-?>

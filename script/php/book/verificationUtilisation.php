@@ -28,14 +28,14 @@ if(isset($_POST['selector'])){
             // verification de l'utilisation de la livre
             if($selector[$i] == $champ["CODEL"]){
                 $codeErreur['code'] = 2;
-                $message .= $champ["CODEL"]."<br/>";
+                $message .= $champ["CODEL"]." || ";
             }
         }
     }
 
     // formatage du message d'erreur
     if($codeErreur['code']==2){
-        $codeErreur['message']="les livres suivantes ne peuvent etre supprimer: </br>";
+        $codeErreur['message']="les livres suivantes ne peuvent etre supprimer: ";
         $codeErreur['message'] .=$message;
     }
 

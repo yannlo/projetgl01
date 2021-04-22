@@ -41,7 +41,7 @@ include("script/php/asset/header.php");
         <!-- tableau contenant les informations de chaque Classe -->
         <form method="post" action="script/php/classroom/supprimerClasse.php" id="supForm">
         <div class="formElt">
-            <a href="formulaire/formulaireClasse.php" class="btnAndSbt">ajouter</a>
+            <a href="formulaireClasse.php" class="btnAndSbt">ajouter</a>
             <input type="submit" value="supprimer" class="btnAndSbt">
 
         </div>
@@ -64,10 +64,10 @@ include("script/php/asset/header.php");
                 while($champ = $request -> fetch()){
                 ?>
                 <tr>
-                    <th><?php echo $i; ?></th>
-                    <th><input type="checkbox" value="<?php echo $champ["CODECL"]; ?>" name ="selector[]" class="selector"></th>
-                    <th><?php echo $champ["CODECL"]; ?></th>
-                    <th><?php echo $champ["LIBELLECL"]; ?></th>
+                    <td><?php echo $i; ?></td>
+                    <td><input type="checkbox" value="<?php echo $champ["CODECL"]; ?>" name ="selector[]" class="selector"></td>
+                    <td><?php echo $champ["CODECL"]; ?></td>
+                    <td><?php echo $champ["LIBELLECL"]; ?></td>
                 </tr>
 
                 <?php

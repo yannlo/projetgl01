@@ -53,7 +53,7 @@
                 }
     
                 // redirection sur la page d'affichage
-                header('Location: ../../../test/liste/listeLivre.php ');
+                header('Location: ../../../listeLivre.php ');
                 exit();
             }
         }
@@ -62,7 +62,7 @@
  
  
      // redirection sur la page d'affichage
-     header('Location: ../../../test/liste/listeLivre.php ');
+     header('Location: ../../../listeLivre.php ');
      exit();
  
   }

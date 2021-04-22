@@ -55,7 +55,7 @@
                 }
     
                 // redirection sur la page d'affichage
-                header('Location: ../../../test/liste/listeAuteurEtGenre.php ');
+                header('Location: ../../../listeAuteurEtGenre.php ');
                 exit();
             }
         }

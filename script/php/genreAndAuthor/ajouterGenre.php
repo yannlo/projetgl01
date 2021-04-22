@@ -48,13 +48,13 @@
         $_SESSION['codeErreur']["type"]="genre";
 
         // redirection sur la page d'affichage
-        header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
+        header('Location: ../../../listeAuteurEtGenre.php ');
         exit();
     }
 
 
     // redirection sur la page d'affichage
-    header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
+    header('Location: ../../../listeAuteurEtGenre.php ');
     exit();
 
  }

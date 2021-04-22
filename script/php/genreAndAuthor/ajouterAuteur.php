@@ -49,13 +49,13 @@ include("../global/verifierConnexion.php");
         $_SESSION['codeErreur']["type"]="auteur";
 
         // redirection sur la page d'affichage
-        header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
+        header('Location: ../../../listeAuteurEtGenre.php ');
         exit();
     }
 
 
     // redirection sur la page d'affichage
-    header('Location: ../../../test/formulaire/formulaireAuteurEtGenre.php ');
+    header('Location: ../../../listeAuteurEtGenre.php ');
     exit();
 
  }

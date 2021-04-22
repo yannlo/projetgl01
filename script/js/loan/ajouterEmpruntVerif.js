@@ -24,7 +24,7 @@ redirection.addEventListener("click", function(e){
                 alert(reponse["message"]);   
             }else{
                 // soumission du formulaire
-                window.location.href = "#";
+                window.location.href = "formulaireEmprunt.php";
             }
 
 

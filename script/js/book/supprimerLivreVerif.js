@@ -38,7 +38,7 @@ form.addEventListener("submit",function(e) {
     };
 
     // detail de l'envoie de le requete
-    xhr.open("POST", "../../script/php/book/verificationUtilisation.php", true);
+    xhr.open("POST", "script/php/book/verificationUtilisation.php", true);
     xhr.responseType ="json";
     // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(data);

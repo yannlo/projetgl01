@@ -43,14 +43,13 @@ include("script/php/asset/header.php");
         <!-- tableau contenant les informations de chaque auteur -->
         <form method="post" action="script/php/genreAndAuthor/supprimerAuteur.php" id="supForm">
         <div class="formElt">
-            <a href="#" class="btnAndSbt">ajouter</a>
+            <a href="formulaireAuteurEtGenre.php" class="btnAndSbt">ajouter</a>
             <input type="submit" value="supprimer" class="btnAndSbt">
         </div>
             <table>
                 <tr>
                     <th>N°</th>
                     <th><input type="checkbox" value="all" name ="selector[]" class="selector"></th>
-                    <th>Code</th>
                     <th>Nom</th>
                 </tr>
                 <?php
@@ -65,10 +64,9 @@ include("script/php/asset/header.php");
                 while($champ = $request -> fetch()){
                 ?>
                 <tr>
-                    <th><?php echo $i; ?></th>
-                    <th><input type="checkbox" value="<?php echo $champ["IDAUTEUR"]; ?>" name ="selector[]" class="selector"></th>
-                    <th><?php echo $champ["IDAUTEUR"]; ?></th>
-                    <th><?php echo $champ["NOMAUTEUR"]; ?></th>
+                    <td><?php echo $i; ?></td>
+                    <td><input type="checkbox" value="<?php echo $champ["IDAUTEUR"]; ?>" name ="selector[]" class="selector"></td>
+                    <td><?php echo $champ["NOMAUTEUR"]; ?></td>
                 </tr>
 
                 <?php
@@ -95,14 +93,13 @@ include("script/php/asset/header.php");
         <form method="post" action="script/php/genreAndAuthor/supprimerGenre.php" id="supForm1">
         <div class="formElt">
 
-            <a href="#" class="btnAndSbt">ajouter</a>
+            <a href="formulaireAuteurEtGenre.php" class="btnAndSbt">ajouter</a>
             <input type="submit" value="supprimer"class="btnAndSbt">
         </div>
             <table>
                 <tr>
                     <th>N°</th>
                     <th><input type="checkbox" value="all" name ="selector[]" class ="selector1"></th>
-                    <th>Code</th>
                     <th>Nom</th>
                 </tr>
                 <?php
@@ -117,10 +114,9 @@ include("script/php/asset/header.php");
                 while($champ = $request -> fetch()){
                 ?>
                 <tr>
-                    <th><?php echo $i; ?></th>
-                    <th><input type="checkbox" value="<?php echo $champ["IDGENRE"]; ?>" name ="selector[]" class="selector1"></th>
-                    <th><?php echo $champ["IDGENRE"]; ?></th>
-                    <th><?php echo $champ["NOMGENRE"]; ?></th>
+                    <td><?php echo $i; ?></td>
+                    <td><input type="checkbox" value="<?php echo $champ["IDGENRE"]; ?>" name ="selector[]" class="selector1"></td>
+                    <td><?php echo $champ["NOMGENRE"]; ?></td>
                 </tr>
 
                 <?php

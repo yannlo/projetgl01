@@ -24,7 +24,7 @@ redirection.addEventListener("click", function(e){
                 alert(reponse["message"]);   
             }else{
                 // soumission du formulaire
-                window.location.href = "../formulaire/formulaireExemplaire.php";
+                window.location.href = "formulaireExemplaire.php";
             }
 
 
@@ -34,7 +34,7 @@ redirection.addEventListener("click", function(e){
     };
 
     // detail de l'envoie de le requete
-    xhr.open("POST", "../../script/php/copy/verificationExistance.php", true);
+    xhr.open("POST", "script/php/copy/verificationExistance.php", true);
     xhr.responseType ="json";
     // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();

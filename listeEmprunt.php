@@ -41,7 +41,7 @@ include("script/php/connection/verifConnexionActive.php ");
                     <!-- tableau contenant les informations de chaque emprunt -->
                     <form method="post" action="script/php/loan/terminerEmprunt.php" id="supForm">
                         <div class="formElt">
-                            <a href="#" id="linkRedirection" class="btnAndSbt">debuter</a>
+                            <a href="formulaireEmprunt.php" id="linkRedirection" class="btnAndSbt">debuter</a>
                             <input type="submit" value="terminer" class="btnAndSbt">
                         </div>
                         <table>
@@ -73,17 +73,17 @@ include("script/php/connection/verifConnexionActive.php ");
                                 // requete de selection des champs de la table etudiant
                                 $request2 = $bdd -> query("SELECT * FROM exemplaire WHERE CODEEXEMPLAIRE ='".$champ['CODEEXEMPLAIRE']."' ");
                                 $livreInf = "";
-                                while($champ2 = $request2 -> fetch()){ $livreInf = $champ2["CODEEXEMPLAIRE"];}
+                                while($champ2 = $request2 -> fetch()){ $livreInf = $champ2["CODEL"];}
 
                                 $request3 = $bdd -> query("SELECT * FROM livre WHERE CODEL ='".$livreInf."' ");
                                 // affichage de toute les valeurs dans un tableau
                                 ?>
                                     <tr>
-                                        <th><?php echo $i; ?></th>
-                                        <th><input type="checkbox" value="<?php echo $champ["MATRICULEE"].' '.$champ["CODEEXEMPLAIRE"].' '.$champ["DEBUTEMPRUNT"] ; ?>" name ="selector[]" class="selector"></th>
-                                        <th><?php while($champ1 = $request1 -> fetch()){ echo $champ1["NOME"]." ".$champ1["PRENOME"];} ?></th>
-                                        <th><?php while($champ3 = $request3 -> fetch()){ echo $champ3["TITREL"];} ?></th>
-                                        <th><?php echo $date; ?></th>
+                                        <td><?php echo $i; ?></td>
+                                        <td><input type="checkbox" value="<?php echo $champ["MATRICULEE"].' '.$champ["CODEEXEMPLAIRE"].' '.$champ["DEBUTEMPRUNT"] ; ?>" name ="selector[]" class="selector"></td>
+                                        <td><?php while($champ1 = $request1 -> fetch()){ echo $champ1["NOME"]." ".$champ1["PRENOME"];} ?></td>
+                                        <td><?php while($champ3 = $request3 -> fetch()){ echo $champ3["TITREL"];} ?></td>
+                                        <td><?php echo $date; ?></td>
                                     </tr>
 
                                 <?php

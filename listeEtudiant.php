@@ -30,7 +30,7 @@ include("script/php/asset/header.php");
 
 <div class="center">
     <a href="classeEtEtudiant.php" class="btnAndSbt">Retour</a>
-    <h1>liste de classe</h1>
+    <h1>liste des etudiants</h1>
     <section class="listEmprunt">
 
         <?php 
@@ -72,11 +72,11 @@ include("script/php/asset/header.php");
 
                     ?>
                         <tr>
-                            <th><?php echo $i; ?></th>
-                            <th><input type="checkbox" value="<?php echo $champ1["MATRICULEE"]; ?>" name ="selector[]" class="selector"></th>
-                            <th><?php echo $champ1["MATRICULEE"]; ?></th>
-                            <th><?php echo $champ["LIBELLECL"]; ?></th>
-                            <th><?php echo $champ1["NOME"].' '.$champ1["PRENOME"]; ?></th>
+                            <td><?php echo $i; ?></td>
+                            <td><input type="checkbox" value="<?php echo $champ1["MATRICULEE"]; ?>" name ="selector[]" class="selector"></td>
+                            <td><?php echo $champ1["MATRICULEE"]; ?></td>
+                            <td><?php echo $champ["LIBELLECL"]; ?></td>
+                            <td><?php echo $champ1["NOME"].' '.$champ1["PRENOME"]; ?></td>
                         </tr>
 
                     <?php

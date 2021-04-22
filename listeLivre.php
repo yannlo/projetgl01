@@ -33,10 +33,6 @@ include("script/php/asset/header.php");
     <h1>liste de livres</h1>
     <section class="listLivre">
 
-<?php 
-// verifier si un code d'erreur existe 
-include("script/php/global/verifierErreur.php");
-?>
 
         <?php 
         // verifier si un code d'erreur existe 
@@ -46,7 +42,7 @@ include("script/php/global/verifierErreur.php");
         <!-- tableau contenant les informations de chaque livre -->
         <form method="post" action="script/php/book/supprimerLivre.php" id="supForm">
         <div class="formElt">
-            <a href="#" id="linkRedirection" class="btnAndSbt">ajouter</a>
+            <a href="formulaireLivre.php" id="linkRedirection" class="btnAndSbt">ajouter</a>
             <input type="submit" value="supprimer" class="btnAndSbt">
         </div>
             <table>
@@ -78,13 +74,13 @@ include("script/php/global/verifierErreur.php");
                     // affichage de toute les valeurs dans un tableau
                     ?>
                         <tr>
-                            <th><?php echo $i; ?></th>
-                            <th><?php echo $champ["CODEL"]; ?></th>
-                            <th><input type="checkbox" value="<?php echo $champ["CODEL"]; ?>" name ="selector[]" class="selector"></th>
-                            <th><?php echo $champ["TITREL"]; ?></th>
-                            <th><?php while($champ1 = $request1 -> fetch()){ echo $champ1["NOMAUTEUR"];} ?></th>
-                            <th><?php while($champ2 = $request2 -> fetch()){ echo $champ2["NOMGENRE"];} ?></th>
-                            <th><?php echo $champ["NBPAGEL"]; ?></th>
+                            <td><?php echo $i; ?></td>
+                            <td><?php echo $champ["CODEL"]; ?></td>
+                            <td><input type="checkbox" value="<?php echo $champ["CODEL"]; ?>" name ="selector[]" class="selector"></td>
+                            <td><?php echo $champ["TITREL"]; ?></td>
+                            <td><?php while($champ1 = $request1 -> fetch()){ echo $champ1["NOMAUTEUR"];} ?></td>
+                            <td><?php while($champ2 = $request2 -> fetch()){ echo $champ2["NOMGENRE"];} ?></td>
+                            <td><?php echo $champ["NBPAGEL"]; ?></td>
                         </tr>
 
                     <?php

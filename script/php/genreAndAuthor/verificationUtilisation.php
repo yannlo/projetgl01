@@ -17,26 +17,32 @@ if(isset($_POST['selector'])){
 
     // initialisation de message d'erreur
     $message="";
-
+    
+    // obtention du nom de l'auteur
+    
+    
     // verification de l'utilisation des information de auteur
     while($champ = $request -> fetch()){
-
-
+        
+        
         // verification pour l'ensemble des valeur receptionner
         for($i=0;$i<count($selector);$i++){
-
+            
             // verification de l'utilisation de auteur
             if($selector[$i] == $champ["IDAUTEUR"]){
                 $codeErreur['code'] = 2;
-                $message .= $champ["IDAUTEUR"]."<br/>";
+                $request2 =$bdd-> query("SELECT * FROM auteur WHERE IDAUTEUR ='".$selector[$i]."'");
+                while($champ2 = $request2 -> fetch()){
+                    $message .= $champ2["NOMAUTEUR"].", ";
+                }
             }
         }
     }
 
     // formatage du message d'erreur
     if($codeErreur['code']==2){
-        $codeErreur['message']="les auteurs suivantes ne peuvent etre supprimer: </br>";
-        $codeErreur['message'] .=$message;
+        $codeErreur['message']="les auteurs suivantes ne peuvent etre supprimer: ";
+        $codeErreur['message'] .= $message;
     }
 
 

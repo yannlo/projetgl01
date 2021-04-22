@@ -47,13 +47,13 @@
         $_SESSION['codeErreur']["message"] = $e -> getMessage();
 
         // redirection sur la page d'affichage
-        header('Location: ../../../test/formulaire/formulaireClasse.php ');
+        header('Location: ../../../listeClasse.php ');
         exit();
     }
 
     
     // redirection sur la page d'affichage
-    header('Location: ../../../test/formulaire/formulaireClasse.php ');
+    header('Location: ../../../listeClasse.php ');
     exit();
 
  }

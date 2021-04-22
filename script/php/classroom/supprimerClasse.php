@@ -54,7 +54,7 @@
                 }
     
                 // redirection sur la page d'affichage
-                header('Location: ../../../test/liste/listeClasse.php ');
+                header('Location: ../../../listeClasse.php ');
                 exit();
             }
         }
@@ -63,7 +63,7 @@
  
  
      // redirection sur la page d'affichage
-     header('Location: ../../../test/liste/listeClasse.php ');
+     header('Location: ../../../listeClasse.php ');
      exit();
  
   }

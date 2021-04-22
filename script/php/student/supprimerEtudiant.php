@@ -54,7 +54,7 @@
                 }
     
                 // redirection sur la page d'affichage
-                header('Location: ../../../test/liste/listeEtudiant.php ');
+                header('Location: ../../../listeEtudiant.php ');
                 exit();
             }
         }
@@ -63,7 +63,7 @@
  
  
      // redirection sur la page d'affichage
-     header('Location: ../../../test/liste/listeEtudiant.php ');
+     header('Location: ../../../listeEtudiant.php ');
      exit();
  
   }
