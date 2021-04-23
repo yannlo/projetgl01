@@ -44,7 +44,7 @@ include("script/php/connection/verifConnexionActive.php ");
                 <a href="livreEtExemplaire.php" class="linkStyleComp"><span>Listes des livres et exemplaires</span></a>
                 <a href="classeEtEtudiant.php" class="linkStyleComp"><span>Listes des classes et etudiants</span></a>
                 <a href="listeGestionnaire.php" class="linkStyleComp"><span>Listes des gestionnaires</span></a>
-                <a href="#" class="linkStyleComp"><span>Statistiques de la platform</span></a>
+                <a href="statistic.php" class="linkStyleComp"><span>Statistiques de la platform</span></a>
             </div>
 
         </section>
